@@ -6,12 +6,13 @@ block content
 			.col-md-12
 				h1= title
 		.row
-			#content.inset.col-md-12
+			#content.inset.col-md-6
 				form#translator(action="/expressions", method="post")
 					div.form-group
 						label A phrase in English
-						input.form-control.english(type="text", placeholder="A phrase in english", name="english")
+						input.form-control.english(type="text", placeholder="eg. I really love cake", name="english")
 					div.form-group
-						label Une expression écrite en français
-						input.form-control.french(type="text", placeholder="Une phrase en français", name="french")
-					button.btn.btn-default(type="submit") Submit
+						label Une expression française
+						input.form-control.french(type="text", placeholder="ex. J'aime bien le gâteau", name="french")
+					button.submit.btn.btn-default.pull-right(type="submit") Submit
+			.col-md-6

@@ -10,3 +10,11 @@ a {
 .inset {
   padding: 35px;
 }
+
+.phrase {
+  text-indent: 10px;
+}
+
+#translator .submit {
+  margin-top: 10px;
+}
