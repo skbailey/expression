@@ -7,6 +7,22 @@ a {
   color: #00B7FF;
 }
 
+label {
+  margin-bottom: 10px;
+}
+
+figcaption {
+  margin-top: 25px;
+}
+
+img {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
 .inset {
   padding: 35px;
 }
