@@ -26,6 +26,7 @@ requirejs.config({
     handlebars: {
       exports: "Handlebars"
     },
+    bootstrap: ["jquery"],
     formparams: ["jquery"],
     snapshot: ["handlebars"]
   }
