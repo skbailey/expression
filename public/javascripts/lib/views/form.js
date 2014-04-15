@@ -1,16 +1,19 @@
 define([
   "backbone", 
   "expression-collection", 
-  "templates",
+  "snapshot",
   "formparams"
   ], function(Backbone, ExpressionCollection){
+
 	var FormView = Backbone.View.extend({
-    
+
     initialize: function(options){
       this.expressionCollection = new ExpressionCollection();
-      this.listenTo(this.expressionCollection, 'sync', this.onSync)
+      this.listenTo(this.expressionCollection, 'sync', this.onSync);
     },
-    template: Handlebars.templates.expression,
+
+    template: Handlebars.templates.snapshot,
+
     events: {
       "submit form" : "onSubmit"
     },
@@ -26,11 +29,11 @@ define([
           self = this;
 
       this.expressionCollection.each(function(model, index, list){
-        console.log('the model', model.toJSON())
         html = self.template(model.toJSON());
       });
       
-      this.$el.html(html);    
+      // TODO: Fix this
+      $('.snapshot-container').html(html);    
     }
   });
 

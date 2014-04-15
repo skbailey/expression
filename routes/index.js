@@ -16,7 +16,19 @@ module.exports = function(app){
 		res.render('index', { title: 'Expression' });
 	});
 
+  app.get('/expressions', function(req, res){
+    // TODO: Update this to a ExpressionModel.all()
+    ExpressionModel.find({}, function(err, expressions){
+      console.log("Sending the expressions!");
+      res.send(expressions);
+    });
+  });
+
 	app.post('/expressions', function(req, res){
-		res.send(200, {english: req.body.english, french: req.body.french});
+    var expression = new ExpressionModel({english: req.body.english, french: req.body.french});
+    expression.save(function(){
+      console.log("Saved expression to Mongo database");
+      res.send(200, {english: req.body.english, french: req.body.french});
+    });
 	});
 };
