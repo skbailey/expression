@@ -8,8 +8,8 @@ requirejs.config({
     form: "views/form",
     "expression-model": "models/expression",
     "expression-collection": "collections/expressions",
-    handlebars: "../vendor/handlebars.runtime-latest",
-    snapshot: "../templates/compiled.handlebars",
+    handlebars: "http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.runtime.min",
+    snapshot: "../templates/compiled/compiled.handlebars",
 
 	},
   shim: {
