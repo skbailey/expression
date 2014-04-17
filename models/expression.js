@@ -3,7 +3,9 @@ var mongoose = require('mongoose');
 // Setup Schema
 var ExpressionSchema = mongoose.Schema({
 	english: String,
-	french: String
+	french: String,
+	created: { type: Date, default: Date.now },
+	updated: { type: Date, default: Date.now }
 });
 
 // Setup Model

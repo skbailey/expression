@@ -1,0 +1,12 @@
+extends layout 
+
+block content
+
+	h2 All Expressions
+
+	ul.expressions
+		each expression in collection
+			li.expression
+				span.english= expression.english
+				span.french= expression.french
+				span.date-created= expression.created
