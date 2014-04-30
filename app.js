@@ -12,7 +12,7 @@ var users = require('./routes/user');
 // Setup mongo database
 var mongoose = require('mongoose');
 var db = mongoose.connect('mongodb://localhost/test').connection;
-db.on('error', function(){ console.error('connection error'); });
+db.on('error', function(){ console.error('Error connecting to Mongo database'); });
 db.once('open', function callback () {
   console.log('Connected to Mongo database!')
 });
