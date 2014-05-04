@@ -1,7 +1,8 @@
 define([
   "backbone",  
-  "form"
-  ], function(Backbone, FormView){
+  "form",
+  "views/expressions"
+  ], function(Backbone, FormView, ExpressionsView){
     var MainRouter = Backbone.Router.extend({
       routes: {
         "" : "home",
@@ -9,11 +10,11 @@ define([
       },
 
       home: function(){
-        this.myform = new FormView({el: "#content"});
+        this.formView = new FormView({el: "#content"});
       },
 
       expressions: function(){
-        console.log('inside expressions')
+        this.expressionsView = new ExpressionsView({el: "#expressions"})
       }
     });
 

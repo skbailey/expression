@@ -1,6 +1,6 @@
 define([
   "backbone", 
-  "expression-collection", 
+  "collections/expressions", 
   "snapshot",
   "formparams",
   "bootstrap"

@@ -4,8 +4,8 @@ block page-styles
   link(rel="stylesheet", href="/stylesheets/expressions.css", media="all")
 
 block content
-  .container.all
-    .row
+  #expressions.container.all
+    .title.row
       .col-md-5
         h3 Français
       .col-md-5
@@ -19,4 +19,4 @@ block content
         .col-md-5
           = expression.english
         .col-md-2
-          span.glyphicon.glyphicon-remove-circle(data-id=expression.id)
+          span.delete.glyphicon.glyphicon-remove-circle(data-id=expression.id)

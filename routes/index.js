@@ -40,10 +40,10 @@ module.exports = function(app){
 	});
 
   app.del("/expressions/:id", function(req, res){
-    Expression.findOneAndRemove({id: req.params.id}, function(err, expression){
+    Expression.findOneAndRemove({_id: req.params.id}, function(err, expression){
       if (err) return res.send(500, { error: "Couldn't delete expression"});
-      console.log("successfully deleted expression", expression)
-      return res.status(200);
+      console.log("successfully deleted expression", expression.id)
+      res.send(200);
     });
   });
 };

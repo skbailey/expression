@@ -7,7 +7,7 @@ requirejs.config({
     formparams: "../vendor/jquery.formparams",
     form: "views/form",
     "expression-model": "models/expression",
-    "expression-collection": "collections/expressions",
+    //"expression-collection": "collections/expressions",
     handlebars: "http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.runtime.min",
     snapshot: "../templates/compiled/compiled.handlebars",
 
