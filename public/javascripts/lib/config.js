@@ -34,10 +34,12 @@ requirejs.config({
 
 require([
   "jquery", 
-  "form",
-  "bootstrap"
-  ], function($, FormView){
+  "routers/main_router"
+  ], function($, MainRouter){
   $(function($){
-    window.myform = new FormView({el: "#content"});
+    // Wait for Document Ready
+    $(function(){
+      var mainRouter = new MainRouter();
+      Backbone.history.start({pushState: true});    })
   })
 });

@@ -30,11 +30,20 @@ module.exports = function(app){
       english: req.body.english, 
       french: req.body.french,
       photo: "http://placehold.it/555x400",
-      createdAt: Date.now()
+      createdAt: Date.now(),
+      updatedAt: Date.now()
     });
 
     expression.save(function(err){
       res.send(200, expression);
     });
 	});
+
+  app.del("/expressions/:id", function(req, res){
+    Expression.findOneAndRemove({id: req.params.id}, function(err, expression){
+      if (err) return res.send(500, { error: "Couldn't delete expression"});
+      console.log("successfully deleted expression", expression)
+      return res.status(200);
+    });
+  });
 };

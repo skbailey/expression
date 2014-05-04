@@ -2,7 +2,8 @@ define([
   "backbone", 
   "expression-collection", 
   "snapshot",
-  "formparams"
+  "formparams",
+  "bootstrap"
   ], function(Backbone, ExpressionCollection){
 
 	var FormView = Backbone.View.extend({
