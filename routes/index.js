@@ -17,27 +17,37 @@ module.exports = function(app){
 	});
 
   app.get('/expressions', function(req, res){
-    Expression.find({}, function(err, expressions){
-      res.format({
-        html: function(){
-          console.log('expressions', expressions)
-          res.render('expressions', {
-            expressions: expressions
-          })
-        },
+    Expression
+      .find({})
+      .sort("-createdAt")
+      .exec(function(err, expressions){
+        res.format({
+          html: function(){
+            console.log('expressions', expressions)
+            res.render('expressions', {
+              expressions: expressions
+            })
+          },
 
-        json: function(){
-          res.send(expressions);
-        }
+          json: function(){
+            res.send(expressions);
+          }
+        });
       });
-    });
   });
 
 	app.post('/expressions', function(req, res){
-    var expression = new Expression({english: req.body.english, french: req.body.french});
-    expression.save(function(){
-      console.log("Saved expression to Mongo database");
-      res.send(200, {english: req.body.english, french: req.body.french});
+    var expression = new Expression({
+      english: req.body.english, 
+      french: req.body.french,
+      photo: "http://placehold.it/555x400",
+      createdAt: Date.now()
+    });
+
+    console.log("About to expression to Mongo database", expression);
+    expression.save(function(err){
+      console.log("Saved expression to Mongo database", expression);
+      res.send(200, expression);
     });
 	});
 };

@@ -4,8 +4,9 @@ var mongoose = require('mongoose');
 var ExpressionSchema = mongoose.Schema({
 	english: String,
 	french: String,
-	updatedAt: { type: Date, default: Date.now },
-	createdAt: { type: Date }
+    photo: String,
+	updatedAt: Date,
+	createdAt: Date
 });
 
 // Setup Model

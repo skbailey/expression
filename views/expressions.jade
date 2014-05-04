@@ -6,14 +6,17 @@ block page-styles
 block content
   .container.all
     .row
-      .col-md-6
+      .col-md-5
         h3 French
-      .col-md-6
+      .col-md-5
         h3 English
+      .col-md-2
 
     each expression in expressions
       .row
-        .col-md-6
+        .col-md-5
           = expression.french
-        .col-md-6
+        .col-md-5
           = expression.english
+        .col-md-2
+          span.glyphicon.glyphicon-remove-circle
