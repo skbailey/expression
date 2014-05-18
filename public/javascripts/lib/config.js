@@ -5,12 +5,12 @@ requirejs.config({
     backbone: "http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min",
     bootstrap: "http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min",
     formparams: "../vendor/jquery.formparams",
+    dropzone: "../vendor/dropzone-amd-module",
     form: "views/form",
     "expression-model": "models/expression",
     //"expression-collection": "collections/expressions",
     handlebars: "http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.runtime.min",
-    snapshot: "../templates/compiled/compiled.handlebars",
-
+    snapshot: "../templates/compiled/compiled.handlebars"
 	},
   shim: {
     backbone: {
@@ -28,7 +28,10 @@ requirejs.config({
     },
     bootstrap: ["jquery"],
     formparams: ["jquery"],
-    snapshot: ["handlebars"]
+    snapshot: ["handlebars"],
+    dropzone: {
+      exports: "Dropzone"
+    }
   }
 });
 

@@ -1,10 +1,11 @@
 define([
   "backbone", 
   "collections/expressions", 
+  "dropzone",
   "snapshot",
   "formparams",
   "bootstrap"
-  ], function(Backbone, ExpressionCollection){
+  ], function(Backbone, ExpressionCollection, Dropzone){
 
 	var FormView = Backbone.View.extend({
 
