@@ -1,5 +1,9 @@
 extends layout
 
+block page-styles
+	link(rel="stylesheet", href="/stylesheets/dropzone/basic.css", media="all")
+	link(rel="stylesheet", href="/stylesheets/dropzone/dropzone.css", media="all")
+
 block content
 	.container
 		.row
@@ -17,3 +21,4 @@ block content
 					button.submit.btn.btn-default.pull-right(type="submit") Submit
 			.snapshot-container.col-md-6
 				//- Snapshot View
+

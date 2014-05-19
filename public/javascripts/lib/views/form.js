@@ -35,7 +35,10 @@ define([
       });
       
       // TODO: Fix this
-      $('.snapshot-container').html(html);    
+      $('.snapshot-container')
+        .html(html)
+        .find('.image-view')
+        .dropzone({url: "/snapshots"});
     }
   });
 

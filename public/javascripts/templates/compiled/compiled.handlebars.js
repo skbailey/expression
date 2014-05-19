@@ -28,7 +28,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   var buffer = "", stack1, helper, functionType="function", escapeExpression=this.escapeExpression;
 
 
-  buffer += "<figure>\n	<div class=\"image-view\">\n		<img src=\"http://placehold.it/555x400\" alt=\"An image describing the expression\">\n	</div>\n	<figcaption>\n		<p class=\"english\">";
+  buffer += "<figure>\n	<div class=\"image-view dropzone\">\n	</div>\n	<figcaption>\n		<p class=\"english\">";
   if (helper = helpers.english) { stack1 = helper.call(depth0, {hash:{},data:data}); }
   else { helper = (depth0 && depth0.english); stack1 = typeof helper === functionType ? helper.call(depth0, {hash:{},data:data}) : helper; }
   buffer += escapeExpression(stack1)
