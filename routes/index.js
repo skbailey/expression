@@ -1,4 +1,6 @@
 var Expression = require('../models/expression');
+var multipart = require('connect-multiparty');
+var multipartMiddleware = multipart();
 
 /* GET home page. */
 module.exports = function(app){
@@ -48,5 +50,10 @@ module.exports = function(app){
 
       res.send(200, expression);
     });
+  });
+
+  app.post("/snapshots", multipartMiddleware, function(req, res){
+    console.log('files', req.files);
+    res.send({message: "File saved"});
   });
 };

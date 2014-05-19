@@ -5,6 +5,7 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var busboy = require('connect-busboy');
 
 var routes = require('./routes');
 var users = require('./routes/user');
@@ -28,6 +29,7 @@ app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+app.use(busboy());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(app.router);
