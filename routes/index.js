@@ -1,9 +1,23 @@
 var Expression = require('../models/expression');
 var multipart = require('connect-multiparty');
 var multipartMiddleware = multipart();
+var fs = require('fs');
+var path = require('path');
+
+var uniqueId =  function(length) {
+  var id = "";
+  length = length || 16;
+
+  while (id.length < length) {
+    id += Math.random().toString(36).substr(2);
+  }
+
+  return id.substr(0, length);
+};
 
 /* GET home page. */
 module.exports = function(app){
+
 	app.get('/', function(req, res){
 		res.render('index');
 	});
@@ -53,7 +67,9 @@ module.exports = function(app){
   });
 
   app.post("/snapshots", multipartMiddleware, function(req, res){
-    console.log('files', req.files);
-    res.send({message: "File saved"});
+    var pathToSavedFile = path.resolve('public/images/snapshots') + "/" + uniqueId(8) + ".jpg";
+    fs.rename(req.files.snapshot.path, pathToSavedFile, function(err){
+      res.send({message: "File saved"});
+    });
   });
 };

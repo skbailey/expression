@@ -38,7 +38,10 @@ define([
       $('.snapshot-container')
         .html(html)
         .find('.image-view')
-        .dropzone({url: "/snapshots"});
+        .dropzone({
+          url: "/snapshots",
+          paramName: "snapshot"
+        });
     }
   });
 
