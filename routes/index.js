@@ -45,7 +45,6 @@ module.exports = function(app){
     var expression = new Expression({
       english: req.body.english, 
       french: req.body.french,
-      photo: "http://placehold.it/555x400",
       createdAt: Date.now(),
       updatedAt: Date.now()
     });
@@ -67,9 +66,24 @@ module.exports = function(app){
   });
 
   app.post("/snapshots", multipartMiddleware, function(req, res){
-    var pathToSavedFile = path.resolve('public/images/snapshots') + "/" + uniqueId(8) + ".jpg";
+    // TODO: Delete files uploaded to tmp directory
+    var filename = uniqueId(8) + ".jpg";
+    var pathToSavedFile = path.resolve('public/images/snapshots') + "/" + filename;
     fs.rename(req.files.snapshot.path, pathToSavedFile, function(err){
-      res.send({message: "File saved"});
+
+      Expression.findById(req.body.id, function(err, expression){
+
+        if (err) throw err;
+        expression.snapshots.push(filename);
+        expression.updatedAt = Date.now;
+        expression.save(function(err, expression){
+
+          res.json({
+            message: "File saved",
+            expression: expression
+          });
+        });
+      });   
     });
   });
 };

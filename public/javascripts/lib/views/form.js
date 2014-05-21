@@ -27,21 +27,29 @@ define([
     },
 
     onSync: function(collection, resp, options){
-      var html,
+      var id, html, dropzone, $dropzone,
           self = this;
 
       this.expressionCollection.each(function(model, index, list){
         html = self.template(model.toJSON());
       });
       
-      // TODO: Fix this
-      $('.snapshot-container')
+      // TODO: Fix this to not just use jQuery to find the element
+      $dropzone = $('.snapshot-container')
         .html(html)
         .find('.image-view')
         .dropzone({
           url: "/snapshots",
           paramName: "snapshot"
-        });
+        })
+
+      id = $dropzone.closest('figure').data('id');
+
+      dropzone = Dropzone.forElement($dropzone.get(0));
+      dropzone.on('sending', function(file, xhr, formData){
+        console.log('Appending extra data to form submission');
+        formData.append('id', id);
+      });
     }
   });
 

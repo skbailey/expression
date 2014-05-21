@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var ExpressionSchema = mongoose.Schema({
 	english: String,
 	french: String,
-    photo: String,
+  snapshots: [String],
 	updatedAt: Date,
 	createdAt: Date
 });
