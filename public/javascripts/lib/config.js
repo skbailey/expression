@@ -41,8 +41,7 @@ require([
   ], function($, MainRouter){
   $(function($){
     // Wait for Document Ready
-    $(function(){
-      var mainRouter = new MainRouter();
-      Backbone.history.start({pushState: true});    })
-  })
+    var mainRouter = new MainRouter();
+    Backbone.history.start({pushState: true});    
+  });
 });
