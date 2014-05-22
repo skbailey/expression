@@ -14,9 +14,12 @@ block content
 
     each expression in expressions
       .row
+        - var link = "/expressions/" + expression.id
         .col-md-5
-          = expression.french
+          a(href=link)
+            = expression.french
         .col-md-5
-          = expression.english
+          a(href=link)
+            = expression.english
         .col-md-2
           span.delete.glyphicon.glyphicon-remove-circle(data-id=expression.id)

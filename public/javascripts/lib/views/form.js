@@ -41,13 +41,12 @@ define([
         .dropzone({
           url: "/snapshots",
           paramName: "snapshot"
-        })
+        });
 
       id = $dropzone.closest('figure').data('id');
 
       dropzone = Dropzone.forElement($dropzone.get(0));
       dropzone.on('sending', function(file, xhr, formData){
-        console.log('Appending extra data to form submission');
         formData.append('id', id);
       });
     }

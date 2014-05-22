@@ -41,6 +41,14 @@ module.exports = function(app){
       });
   });
 
+  app.get('/expressions/:id', function(req, res){
+    Expression.findById(req.params.id, function(err, expression){
+      if (err) throw err
+      console.log('expression', expression)
+      res.render('expression', { expression: expression });
+    });
+  });
+
 	app.post('/expressions', function(req, res){
     var expression = new Expression({
       english: req.body.english, 
@@ -75,9 +83,9 @@ module.exports = function(app){
 
         if (err) throw err;
         expression.snapshots.push(filename);
-        expression.updatedAt = Date.now;
+        expression.updatedAt = Date.now();
         expression.save(function(err, expression){
-
+          if (err) throw err;
           res.json({
             message: "File saved",
             expression: expression
