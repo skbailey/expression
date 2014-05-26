@@ -35,7 +35,7 @@ module.exports = function(app){
           },
 
           json: function(){
-            res.send(expressions);
+            res.json(expressions);
           }
         });
       });
@@ -44,8 +44,9 @@ module.exports = function(app){
   app.get('/expressions/:id', function(req, res){
     Expression.findById(req.params.id, function(err, expression){
       if (err) throw err
-      console.log('expression', expression)
-      res.render('expression', { expression: expression });
+      res.render('expression', { 
+        expression: expression 
+      });
     });
   });
 
@@ -65,9 +66,7 @@ module.exports = function(app){
   app.del("/expressions/:id", function(req, res){
 
     Expression.findOneAndRemove({_id: req.params.id}, function(err, expression){
-      if (err) {
-        return res.send(500, { error: "Couldn't delete expression"});
-      }
+      if (err) throw err;
 
       res.send(200, expression);
     });

@@ -1,5 +1,6 @@
 /* Styles for the Expressions page */
 
-.all .row {
+.all .row, 
+.title.row {
     margin-bottom: 20px;
 }

@@ -1,6 +1,11 @@
+html {
+  height: 100%
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100%
 }
 
 a {
@@ -19,6 +24,38 @@ img {
   width: 100%;
 }
 
+main {
+    background-color: #fff; 
+    width: 100%;
+    position: absolute;
+    z-index: 5;
+    left: 0px;
+    height: 100%;
+    transition: all 0.2s ease-out 0;
+    /*
+    -webkit-box-shadow:  -5px 0px 4px 0px rgba(0, 0, 0, 0.2);
+        moz-box-shadow:  -5px 0px 4px 0px rgba(0, 0, 0, 0.2);
+          o-box-shadow:  -5px 0px 4px 0px rgba(0, 0, 0, 0.2);
+            box-shadow:  -5px 0px 4px 0px rgba(0, 0, 0, 0.2);
+            */
+}
+
+main.open {
+  left: 350px;
+}
+
+.container {
+  height: 100%;
+}
+
+.container > .row {
+  height: 100%;
+}
+
+.container > .row .main-container {
+  height: 100%;
+}
+
 .form-group {
   margin-bottom: 25px;
 }
@@ -33,4 +70,30 @@ img {
 
 #translator .submit {
   margin-top: 10px;
+}
+
+.menu,
+.delete {
+  cursor: pointer;
+}
+
+menu {
+    float:left;
+    width: 350px;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+nav {
+  float: left;
+  width: 350px;
+  height: 100%;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  margin-bottom: 10px;
 }

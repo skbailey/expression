@@ -41,7 +41,13 @@ require([
   ], function($, MainRouter){
   $(function($){
     // Wait for Document Ready
-    var mainRouter = new MainRouter();
-    Backbone.history.start({pushState: true});    
+    var main, menuSelect, mainRouter = new MainRouter();
+    Backbone.history.start({pushState: true}); 
+
+    main = $('main');   
+    menuSelect = main.find('span.menu');
+    menuSelect.click(function(evt){
+      main.toggleClass('open');
+    });
   });
 });

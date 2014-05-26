@@ -6,5 +6,25 @@ html
     link(rel="stylesheet", href="/stylesheets/base.css", media="all")
     block page-styles
   body
-    block content
+    .container
+      .row
+        .main-container.col-md-12
+          nav#menu
+            h4
+              strong Menu
+            ul#pages
+              li 
+                a(href="/") Home
+              li 
+                a(href="/expressions") All expressions
+          main
+            .row
+              .col-md-12
+                menu#global
+                  span.menu.glyphicon.glyphicon-align-justify
+            .row
+              .col-md-12
+                h1 Expression
+                block content
+
     script(src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.11/require.min.js", data-main="/javascripts/lib/config.js")

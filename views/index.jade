@@ -5,20 +5,16 @@ block page-styles
 	link(rel="stylesheet", href="/stylesheets/dropzone/dropzone.css", media="all")
 
 block content
-	.container
-		.row
-			.col-md-12
-				h1 Expression
-		.row
-			#content.inset.col-md-6
-				form#translator(action="/expressions", method="post")
-					div.form-group
-						label A phrase in English
-						input.form-control.english(type="text", placeholder="eg. I really love cake", name="english")
-					div.form-group
-						label Une expression française
-						input.form-control.french(type="text", placeholder="ex. J'aime bien le gâteau", name="french")
-					button.submit.btn.btn-default.pull-right(type="submit") Submit
-			.snapshot-container.col-md-6
-				//- Snapshot View
+	.row
+		#content.inset.col-md-6
+			form#translator(action="/expressions", method="post")
+				div.form-group
+					label A phrase in English
+					input.form-control.english(type="text", placeholder="eg. I really love cake", name="english")
+				div.form-group
+					label Une expression française
+					input.form-control.french(type="text", placeholder="ex. J'aime bien le gâteau", name="french")
+				button.submit.btn.btn-default.pull-right(type="submit") Submit
+		.snapshot-container.col-md-6
+			//- Snapshot View
 
