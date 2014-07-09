@@ -29,3 +29,6 @@ public/javascripts/templates/compiled.handlebars.js
 
 # Images
 public/images/snapshots
+
+# Config Variables
+.env

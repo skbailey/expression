@@ -10,7 +10,7 @@ var routes = require('./routes');
 
 // Setup mongo database
 var mongoose = require('mongoose');
-var db = mongoose.connect('mongodb://localhost/expressions').connection;
+var db = mongoose.connect(process.env.MONGOHQ_URL).connection;
 db.on('error', function(){ console.error('connection error'); });
 db.once('open', function callback () {
   console.log('Connected to Mongo database!')
