@@ -4,3 +4,11 @@
 .title.row {
     margin-bottom: 20px;
 }
+
+.card {
+  border:1px solid #AAA;
+  border-radius: 2px;
+  overflow: hidden;
+  padding: 15px;
+  box-shadow: 2px 2px 3px #888;
+}

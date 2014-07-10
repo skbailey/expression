@@ -16,6 +16,12 @@ label {
   margin-bottom: 10px;
 }
 
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
 figcaption {
   margin-top: 25px;
 }
