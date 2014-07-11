@@ -8,6 +8,10 @@ body {
   height: 100%
 }
 
+h1 {
+  margin-bottom: 30px;
+}
+
 a {
   color: #00B7FF;
 }
@@ -22,8 +26,16 @@ ul {
   list-style: none;
 }
 
-figcaption {
-  margin-top: 25px;
+figure {
+  overflow: hidden;
+}
+
+figure ul {
+  margin-bottom: 25px;
+}
+
+figure p:last-child {
+  margin: 0;
 }
 
 img {

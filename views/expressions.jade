@@ -5,21 +5,24 @@ block page-styles
 
 block content
   #expressions.container.all
-    .title.row
-      .col-md-5
-        h3 Français
-      .col-md-5
-        h3 English
-      .col-md-2
-
-    each expression in expressions
-      .row
-        - var link = "/expressions/" + expression.id
-        .col-md-5
-          a(href=link)
-            = expression.french
-        .col-md-5
-          a(href=link)
-            = expression.english
-        .col-md-2
-          span.delete.glyphicon.glyphicon-remove-circle(data-id=expression.id)
+    .row
+      each expression, idx in expressions
+        .col-md-3
+          .card
+            figure
+              if expression.snapshots.length > 0
+                ul
+                  - for snapshot in expression.snapshots
+                    li
+                      - var imgSrc = "/images/snapshots/" + snapshot
+                        img(src=imgSrc, alt=expression.english)
+              figcaption
+                p.french
+                  a(href="/expressions/" + expression.id)
+                    = expression.french
+                p.english.pull-right
+                  a(href="/expressions/" + expression.id)
+                   = expression.english
+        //-
+          .col-md-2
+            span.delete.glyphicon.glyphicon-remove-circle(data-id=expression.id)
