@@ -70,7 +70,7 @@ var server = app.listen(app.get('port'), function() {
 });
 
 // Shutdown hook
-process.on('SIGINT', function () {
+process.on('SIGTERM', function () {
     db.close(function(){
         console.log('Closed Mongo database connection\nClosing server...');
         process.exit(0);

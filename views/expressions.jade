@@ -5,12 +5,13 @@ block page-styles
 
 block content
   #expressions.container.all
-    .row
-      each expression, idx in expressions
-        .col-md-3
-          .card
-            figure
-              if expression.snapshots.length > 0
+    - while (expressions.length > 0)
+      - var row = expressions.splice(0, 4)
+      .row
+        each expression in row
+          .col-md-3
+            .card
+              figure
                 ul
                   - for snapshot in expression.snapshots
                     li
