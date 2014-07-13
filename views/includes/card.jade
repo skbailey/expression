@@ -1,0 +1,16 @@
+.card
+  if expression.snapshots.length > 0
+    figure
+      ul
+        li
+          - var imgSrc = "/images/snapshots/" + expression.snapshots[0]
+            img(src=imgSrc, alt=expression.english)
+  figcaption
+    p.french
+      a(href="/expressions/" + expression.id)
+        = expression.french
+      input(type="text", value=expression.french)
+    p.english.pull-right
+      a(href="/expressions/" + expression.id)
+       = expression.english
+      input(type="text", value=expression.english)

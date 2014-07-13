@@ -10,20 +10,4 @@ block content
       .row
         each expression in row
           .col-md-3
-            .card
-              figure
-                ul
-                  - for snapshot in expression.snapshots
-                    li
-                      - var imgSrc = "/images/snapshots/" + snapshot
-                        img(src=imgSrc, alt=expression.english)
-              figcaption
-                p.french
-                  a(href="/expressions/" + expression.id)
-                    = expression.french
-                p.english.pull-right
-                  a(href="/expressions/" + expression.id)
-                   = expression.english
-        //-
-          .col-md-2
-            span.delete.glyphicon.glyphicon-remove-circle(data-id=expression.id)
+            include includes/card

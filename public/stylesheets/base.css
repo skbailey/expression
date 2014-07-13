@@ -34,7 +34,7 @@ figure ul {
   margin-bottom: 25px;
 }
 
-figure p:last-child {
+figcaption p:last-child {
   margin: 0;
 }
 

@@ -13,3 +13,7 @@
   margin: 0 0 30px 0;
   box-shadow: 2px 2px 3px #888;
 }
+
+.expression input {
+  border: 0;
+}
