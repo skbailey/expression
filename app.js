@@ -17,6 +17,7 @@ db.once('open', function callback () {
 });
 
 var app = express();
+app.locals.title = "Expression";
 app.set('port', process.env.PORT || 3000);
 
 // view engine setup

@@ -1,9 +1,38 @@
-/* Styles for the Expressions page */
+/* Expression Styles */
 
-.all .row, 
+.expression.container.index .row, 
 .title.row {
     margin-bottom: 20px;
 }
+
+.expression.container .row.actions {
+  margin-bottom: 30px;
+}
+
+.expression.container input {
+  border: 0;
+}
+
+.expression.container input.edit,
+.expression.container button.save {
+  display: none;
+}
+
+.expression.container .english input.edit {
+  text-align: right;
+}
+
+.expression.container.edit-mode input.edit,
+.expression.container.edit-mode button.save {
+  display: inline;
+}
+
+.expression.container.edit-mode button.edit,
+.expression.container.edit-mode .expression-link {
+  display: none;
+}
+
+/* Card Styles */
 
 .card {
   border:1px solid #AAA;
@@ -12,8 +41,4 @@
   padding: 15px;
   margin: 0 0 30px 0;
   box-shadow: 2px 2px 3px #888;
-}
-
-.expression input {
-  border: 0;
 }

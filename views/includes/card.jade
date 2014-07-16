@@ -7,10 +7,10 @@
             img(src=imgSrc, alt=expression.english)
   figcaption
     p.french
-      a(href="/expressions/" + expression.id)
+      a.expression-link(href="/expressions/" + expression.id)
         = expression.french
-      input(type="text", value=expression.french)
+      input.edit(type="text", value=expression.french)
     p.english.pull-right
-      a(href="/expressions/" + expression.id)
+      a.expression-link(href="/expressions/" + expression.id)
        = expression.english
-      input(type="text", value=expression.english)
+      input.edit(type="text", value=expression.english)
