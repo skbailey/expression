@@ -4,12 +4,9 @@ requirejs.config({
     underscore: "http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min",
     backbone: "http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min",
     bootstrap: "http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min",
+    handlebars: "http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.runtime.min",
     formparams: "../vendor/jquery.formparams",
     dropzone: "../vendor/dropzone-amd-module",
-    form: "views/form",
-    "expression-model": "models/expression",
-    //"expression-collection": "collections/expressions",
-    handlebars: "http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.runtime.min",
     snapshot: "../templates/compiled/compiled.handlebars"
 	},
   shim: {

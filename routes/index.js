@@ -44,9 +44,29 @@ module.exports = function(app){
   app.get('/expressions/:id', function(req, res){
     Expression.findById(req.params.id, function(err, expression){
       if (err) throw err
-      res.render('expression', { 
-        expression: expression 
+      res.format({
+        json: function(){
+          res.json({ 
+            expression: expression 
+          });
+        },
+
+        html: function(){
+          res.render('expression', { 
+            expression: expression 
+          });
+        }
       });
+    });
+  });
+
+  app.put('/expressions/:id', function(req, res){
+    Expression.findByIdAndUpdate(req.params.id, {
+      english: req.body.english,
+      french: req.body.french,
+      updatedAt: Date.now()
+    }, function(err, expression){
+      res.send(200, expression);
     });
   });
 

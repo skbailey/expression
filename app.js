@@ -49,9 +49,17 @@ app.use(function(req, res, next) {
 // will print stacktrace
 if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
-        res.render('error', {
-            message: err.message,
-            error: err
+        res.format({
+          json: function(){
+            res.json(404, {message: "Couldn't find route"});
+          },
+
+          html: function(){
+            res.render('error', {
+              message: err.message,
+              error: err
+            });
+          }
         });
     });
 }
@@ -59,9 +67,17 @@ if (app.get('env') === 'development') {
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
-    res.render('error', {
-        message: err.message,
-        error: {}
+    res.format({
+      json: function(){
+        res.json(404, {message: "Couldn't find route"});
+      },
+
+      html: function(){
+        res.render('error', {
+          message: err.message,
+          error: {}
+        });
+      }
     });
 });
 

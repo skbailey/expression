@@ -1,9 +1,10 @@
 define([
   "backbone",  
-  "form",
+  "views/form",
   "views/collection/expressions",
-  "views/item/expression"
-  ], function(Backbone, FormView, ExpressionsView, ExpressionView){
+  "views/item/expression",
+  "models/expression"
+  ], function(Backbone, FormView, ExpressionsView, ExpressionView, ExpressionModel){
 
     var MainRouter = Backbone.Router.extend({
       routes: {
@@ -13,17 +14,17 @@ define([
       },
 
       home: function(){
-        this.formView = new FormView({ el: "#content" });
+        this.formView = new FormView({el: "#content" });
       },
 
       collection: function(){
         console.log("Inside collection")
-        this.expressionsView = new ExpressionsView({ el: "#expressions" })
+        this.expressionsView = new ExpressionsView({el: "#expressions" })
       }, 
 
       member: function(id){
-        console.log("Inside member", id)
-        this.expressionView = new ExpressionView({el: ".expression"})
+        var model = new ExpressionModel({_id: id});
+        this.expressionView = new ExpressionView({el: ".expression", model: model})
       }
     });
 
